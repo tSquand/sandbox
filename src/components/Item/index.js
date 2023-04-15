@@ -6,12 +6,18 @@ const Item = ({name, incrementCounter}) => {
         setIsCompleted(true);
         incrementCounter();
     }, [setIsCompleted, incrementCounter]);
+
+    const onDragStart = (event) => {
+        event.dataTransfer.setData("task", name);
+    };
     
-    return (        
-        <div>
-            {!isCompleted && <button onClick={handleCompletedClick}>Complete</button>}
-            <span style={{textDecorationLine : isCompleted && "line-through"}}> {name} </span>
+    return (
+        <div className="item" draggable onDragStart={onDragStart}>
+                {!isCompleted && <button onClick={handleCompletedClick}>Complete</button>}
+                <span style={{textDecorationLine : isCompleted && "line-through"}}> {name} </span>
         </div>
+        
+
 
     )
 }

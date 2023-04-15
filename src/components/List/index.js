@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Item from "../Item";
 import SpaghettiCount from "../SpaghettiCount";
+import HourPlanner from "../HourPlanner";
 
 const List = () => {
     const [items, setItems] = useState([]);
@@ -26,13 +27,19 @@ const List = () => {
 
     const handleInputChange = useCallback((event) => {
         setInputValue(event.target.value);
-    }, []);
+    }, [setInputValue]);
 
     const handleKeyPress = useCallback((event) => {
         if (event.key === 'Enter') {
             addItem();
         }
     }, [addItem]);
+
+    const onTaskScheduled = useCallback(
+        (task) => {
+            setItems((prevItems) => prevItems.filter((item) => item !== task));
+        }, [setItems]
+    );
     
     return (
         <div>
@@ -50,8 +57,9 @@ const List = () => {
                 
             </div>
             <SpaghettiCount count={spaghettiCount}/>
+            <HourPlanner onTaskScheduled={onTaskScheduled} />
         </div>
-    )
-}
+    );
+};
 
 export default List;
