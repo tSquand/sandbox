@@ -1,16 +1,16 @@
 import React, { useState, useCallback } from "react";
 import Item from "../Item";
-import SpaghettiCount from "../SpaghettiCount";
-import HourPlanner from "../HourPlanner";
+import TaskCounter from "../TaskCounter";
+
 
 const List = () => {
     const [items, setItems] = useState([]);
-    const [spaghettiCount, setSpaghettiCount] = useState(0);
+    const [taskCount, setTaskCount] = useState(0);
     const [inputValue, setInputValue] = useState("");
 
     const incrementCounter = useCallback(() => {
-        setSpaghettiCount(spaghettiCount + 1)
-    }, [spaghettiCount, setSpaghettiCount]);
+        setTaskCount(taskCount + 1)
+    }, [taskCount, setTaskCount]);
     
 
     const addItem = useCallback(() => {
@@ -22,8 +22,8 @@ const List = () => {
     
     const resetList = useCallback(() => {
         setItems([]);
-        setSpaghettiCount(0);
-    }, [setItems, setSpaghettiCount]);
+        setTaskCount(0);
+    }, [setItems, setTaskCount]);
 
     const handleInputChange = useCallback((event) => {
         setInputValue(event.target.value);
@@ -35,11 +35,11 @@ const List = () => {
         }
     }, [addItem]);
 
-    const onTaskScheduled = useCallback(
+   /* const onTaskScheduled = useCallback(
         (task) => {
             setItems((prevItems) => prevItems.filter((item) => item !== task));
         }, [setItems]
-    );
+    );*/
     
     return (
         <div>
@@ -52,12 +52,12 @@ const List = () => {
                     onKeyDown={handleKeyPress}
                     placeholder="Enter task"
                 />
-                <button id="create-task-button" onClick={() => addItem()}> Create a task</button>
+                <button id="create-task-button" onClick={() => addItem()}>Create a task</button>
                 <button onClick={resetList}>Reset</button>
                 
             </div>
-            <SpaghettiCount count={spaghettiCount}/>
-            <HourPlanner onTaskScheduled={onTaskScheduled} />
+            <TaskCounter count={taskCount}/>
+            
         </div>
     );
 };

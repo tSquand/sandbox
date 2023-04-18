@@ -1,11 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import List from './components/List';
+import HourPlanner from './components/HourPlanner';
+
 
 function App() {
   return (
     <div className="App">
-      <List/>
+      <HourPlanner/>
+      <List/>   
     </div>
   );
 }
