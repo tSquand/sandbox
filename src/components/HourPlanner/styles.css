@@ -1,0 +1,22 @@
+.hour-label {
+    line-height: .75;
+    font-style: oblique;
+}
+
+.hour-slot {
+    line-height: .75;
+}
+
+ul {
+    list-style: none;
+}
+
+.hour-slot ul li {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.hour-planner {
+    border-radius: 4px;
+    border-color: black;
+}

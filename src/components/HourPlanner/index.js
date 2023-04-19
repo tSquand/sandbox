@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './styles.css';
 
 const HourPlanner = ({ onTaskScheduled }) => {
     const [scheduleAM, setScheduleAM] = useState(Array(7).fill([]));
@@ -38,7 +39,7 @@ const HourPlanner = ({ onTaskScheduled }) => {
                 onDragOver={onDragOver}
             >
                 <div className="hour-label">
-                    {isPM ? hour + 1 : hour + 6}:00 {isPM ? "PM" : "AM"}
+                    {isPM ? hour + 1 : hour + 6}:00 {!isPM && (hour + 6 !== 12) ? "AM" : "PM"}
                 </div>
                 <ul>
                     {tasks.map((task, index) => (

@@ -11,6 +11,10 @@ const List = () => {
     const incrementCounter = useCallback(() => {
         setTaskCount(taskCount + 1)
     }, [taskCount, setTaskCount]);
+
+    const decrementCounter = useCallback(() => {
+        setTaskCount(taskCount - 1)
+    }, [taskCount, setTaskCount]);
     
 
     const addItem = useCallback(() => {
@@ -43,7 +47,7 @@ const List = () => {
     
     return (
         <div>
-            {items.map((item) => <Item name={item} incrementCounter={incrementCounter}/>)}
+            {items.map((item) => <Item name={item} incrementCounter={incrementCounter} decrementCounter={decrementCounter}/>)}
             <div>
                 <input
                     type="text"

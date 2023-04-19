@@ -1,11 +1,15 @@
 import React, {useState, useCallback} from 'react';
 
-const Item = ({name, incrementCounter}) => {
+const Item = ({name, incrementCounter, decrementCounter}) => {
     const [isCompleted, setIsCompleted] = useState(false);
-    const handleCompletedClick = useCallback(() => {
-        setIsCompleted(true);
-        incrementCounter();
-    }, [setIsCompleted, incrementCounter]);
+    const handleChange = useCallback(() => {
+        setIsCompleted(!isCompleted);
+        if (!isCompleted) {
+            incrementCounter();
+        } else {
+            decrementCounter();
+        }
+    }, [isCompleted, setIsCompleted, incrementCounter, decrementCounter]);
 
     const onDragStart = (event) => {
         event.dataTransfer.setData("task", name);
@@ -13,7 +17,11 @@ const Item = ({name, incrementCounter}) => {
     
     return (
         <div className="item" draggable onDragStart={onDragStart}>
-                {!isCompleted && <button onClick={handleCompletedClick}>Complete</button>}
+            <input
+                type="checkbox"
+                checked={isCompleted}
+                onChange={handleChange} 
+                />
                 <span style={{textDecorationLine : isCompleted && "line-through"}}> {name} </span>
         </div>
         
