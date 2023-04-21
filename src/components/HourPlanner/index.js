@@ -4,6 +4,7 @@ import './styles.css';
 const HourPlanner = ({ onTaskScheduled }) => {
     const [scheduleAM, setScheduleAM] = useState(Array(7).fill([]));
     const [schedulePM, setSchedulePM] = useState(Array(10).fill([]));
+    const [isMinimized, setIsMinimized] = useState(true);
 
     const onDrop = (event, hour, isPM) => {
         event.preventDefault();
@@ -50,10 +51,23 @@ const HourPlanner = ({ onTaskScheduled }) => {
         ));
     };
 
+    const toggleMinimize = () => {
+        setIsMinimized(!isMinimized);
+    };
+
     return (
         <div className="hour-planner">
+            <button onClick={toggleMinimize} className="minimize-button">
+                {isMinimized ? 'Hourly Planner' : '-'}
+            </button>
+            {!isMinimized && (
+                <>
             {renderHourSlots(scheduleAM, false)}
             {renderHourSlots(schedulePM, true)}
+            <button>Reset</button>
+                </>
+            )}
+            
         </div>
     );
 };
