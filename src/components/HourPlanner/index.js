@@ -55,6 +55,11 @@ const HourPlanner = ({ onTaskScheduled }) => {
         setIsMinimized(!isMinimized);
     };
 
+    const resetHourList = () => {
+        setScheduleAM(Array(7).fill([]));
+        setSchedulePM(Array(10).fill([]));
+    }
+
     return (
         <div className="hour-planner">
             <button onClick={toggleMinimize} className="minimize-button">
@@ -64,7 +69,7 @@ const HourPlanner = ({ onTaskScheduled }) => {
                 <>
             {renderHourSlots(scheduleAM, false)}
             {renderHourSlots(schedulePM, true)}
-            <button>Reset</button>
+            <button onClick={resetHourList}>Reset</button>
                 </>
             )}
             

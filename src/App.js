@@ -6,9 +6,10 @@ import HourPlanner from './components/HourPlanner';
 function App() {
   return (
     <div className="App">
-      <List/> 
-      <HourPlanner/>
-        
+      <div className="component-container">
+        <List className="List"/> 
+        <HourPlanner className="HourPlanner"/> 
+      </div>      
     </div>
   );
 }
