@@ -4,6 +4,7 @@ const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [temperatureUnit] = useState('fahrenheit');
     const [chanceOfRain, setChanceOfRain] = useState(null);
+    const [location, setLocation] = useState("Tallahassee");
 
     useEffect(() => {
         fetchWeatherData();
@@ -35,7 +36,7 @@ const Weather = () => {
     const { current_weather } = weatherData;
     return (
         <div>
-            <h2>Current Weather</h2>
+            <h2>{location}</h2>
             <p>{current_weather.temperature}°F</p>
             <p>{chanceOfRain}% chance of rain</p>
         </div>
