@@ -3,15 +3,16 @@ import React, { useState, useEffect } from 'react';
 const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [temperatureUnit] = useState('fahrenheit');
+    const [chanceOfRain, setChanceOfRain] = useState(null);
 
     useEffect(() => {
         fetchWeatherData();
-    });
+    },);
 
     const fetchWeatherData = async () => {
         try {
             const response = await fetch(
-                `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&temperature_unit=${temperatureUnit}`,
+                `https://api.open-meteo.com/v1/forecast?latitude=30.44&longitude=-84.28&current_weather=true&temperature_unit=${temperatureUnit}&hourly=precipitation_probability&hours=1`,
             );
 
             if (!response.ok) {
@@ -20,6 +21,8 @@ const Weather = () => {
 
             const data = await response.json();
             setWeatherData(data);
+            setChanceOfRain(data.hourly.precipitation_probability[0]);
+
         } catch (error) {
             console.error('Error fetching weather data:', error);
         }
@@ -32,9 +35,9 @@ const Weather = () => {
     const { current_weather } = weatherData;
     return (
         <div>
-            <h1>Current Weather</h1>
-            <p>Time: {current_weather.time}</p>
-            <p>Temperature: {current_weather.temperature}°F</p>
+            <h2>Current Weather</h2>
+            <p>{current_weather.temperature}°F</p>
+            <p>{chanceOfRain}% chance of rain</p>
         </div>
     )
 }
