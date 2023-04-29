@@ -1,0 +1,19 @@
+.notepad {
+    position: relative;
+}
+
+.notepad-textarea {
+    width: 450px;
+    height: 200px;
+    padding: 10px;
+    font-size: 16px;
+    resize: both;
+    background-color:rgba(255, 255, 255, 0.849);
+}
+
+.minimize-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5x 10px;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Item from '../Item';
 import './styles.css';
 
 const HourPlanner = ({ onTaskScheduled }) => {
@@ -8,8 +9,8 @@ const HourPlanner = ({ onTaskScheduled }) => {
 
     const onDrop = (event, hour, isPM) => {
         event.preventDefault();
-        const task = event.dataTransfer.getData("task");
-        if (task) {
+        const task = JSON.parse(event.dataTransfer.getData("task"));
+        if (task.name) {
             if (isPM) {
                 setSchedulePM((prevSchedule) => {
                     const newSchedule = [...prevSchedule];
@@ -23,7 +24,7 @@ const HourPlanner = ({ onTaskScheduled }) => {
                     return newSchedule;
                 });
             }                     
-            onTaskScheduled(task);
+            onTaskScheduled(task.name);
         }
     };
 
@@ -44,8 +45,8 @@ const HourPlanner = ({ onTaskScheduled }) => {
                 </div>
                 <ul>
                     {tasks.map((task, index) => (
-                        <li key={index}>{task}</li>
-                    ))}
+                        <Item key={index} name={task.name} checked={task.checked} />
+                    ))}                    
                 </ul>
             </div>
         ));
@@ -62,11 +63,12 @@ const HourPlanner = ({ onTaskScheduled }) => {
 
     return (
         <div className="hour-planner">
-            <button onClick={toggleMinimize} className="minimize-button">
+            <button onClick={toggleMinimize} className="hour-minimize">
                 {isMinimized ? 'Hourly Planner' : '-'}
             </button>
             {!isMinimized && (
                 <>
+                <p className="hour-planner-text">Drag a task over!</p>
             {renderHourSlots(scheduleAM, false)}
             {renderHourSlots(schedulePM, true)}
             <button onClick={resetHourList}>Reset</button>

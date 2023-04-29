@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react';
 
-const Item = ({name, incrementCounter, decrementCounter}) => {
-    const [isCompleted, setIsCompleted] = useState(false);
+const Item = ({name, incrementCounter, decrementCounter, checked }) => {
+    const [isCompleted, setIsCompleted] = useState(checked || false);
     const handleChange = useCallback(() => {
         setIsCompleted(!isCompleted);
         if (!isCompleted) {
@@ -12,7 +12,7 @@ const Item = ({name, incrementCounter, decrementCounter}) => {
     }, [isCompleted, setIsCompleted, incrementCounter, decrementCounter]);
 
     const onDragStart = (event) => {
-        event.dataTransfer.setData("task", name);
+        event.dataTransfer.setData("task", JSON.stringify({ name: name, checked: isCompleted}));
     };
     
     return (

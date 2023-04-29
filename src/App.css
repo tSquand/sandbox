@@ -7,4 +7,24 @@
   display: flex;
   align-items: flex-start;
   gap: 2rem;
+
 }
+
+.notepad-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  right: 0;
+  height: 100px;
+}
+
+.weather-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+}
+
