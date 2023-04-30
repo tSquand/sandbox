@@ -17,10 +17,18 @@ ul {
 }
 
 .hour-planner {
-    border-radius: 4px;
-    border-color: black;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: #b1d8b7;
+    width: 500px;
 }
 
 .hour-planner-text {
-    margin-top: 0;
+    margin-top: 0;  
+    color: white; 
+}
+
+.hour-label {
+    color: white;
+    font-size: larger;
 }

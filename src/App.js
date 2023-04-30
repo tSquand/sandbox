@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <div className="component-container">
-        <List className="List"/> 
-        <HourPlanner className="HourPlanner"/>
-      </div> 
+        <HourPlanner className="HourPlanner"/> 
+        <List className="List"/>       
+      </div>        
       <div className="weather-container">
         <Weather className="Weather"/>
       </div>

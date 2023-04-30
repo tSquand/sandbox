@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: aquamarine;
+  background-image: linear-gradient(to right, #a1ebb7, #5079c7)
 }
 
 code {
@@ -14,6 +14,7 @@ code {
 }
 
 .task-counter {
-  color: blueviolet;
+  color: white;
   font-size:larger;
+  font-family: Arial, Helvetica, sans-serif;
 }

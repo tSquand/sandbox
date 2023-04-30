@@ -5,8 +5,9 @@
 
 .component-container {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
 
 }
 
@@ -22,7 +23,7 @@
 }
 
 .weather-container {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   right: 0;
   padding: 20px;
