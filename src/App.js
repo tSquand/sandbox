@@ -8,17 +8,22 @@ import Notepad from './components/Notepad';
 function App() {
   return (
     <div className="App">
-      <div className="component-container">
+      <div className="first-column">
+
+      </div>
+      <div className="second-column">
         <HourPlanner className="HourPlanner"/> 
         <List className="List"/>       
-      </div>        
-      <div className="weather-container">
-        <Weather className="Weather"/>
-      </div>
-      <div className="notepad-container">
-        <Notepad />
       </div>     
-    </div>
+      <div className="third-column">
+        <div className="weather-container">             
+          <Weather className="Weather"/>
+        </div> 
+        <div className="notepad-container">
+          <Notepad className="Notepad"/>
+          </div>
+        </div>
+      </div>     
   );
 }
 

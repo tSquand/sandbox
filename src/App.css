@@ -1,6 +1,10 @@
 .App {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "hourPlanner list notepad";
+  gap: 20px;
+  padding: 50px;
 }
 
 .component-container {
@@ -8,24 +12,41 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+  margin-top: 100px;
+  grid-area: list;
+}
 
+.HourPlanner {
+  grid-area: hourPlanner;
+}
+
+.notepad-container {
+  grid-area: notepad;
+}
+
+.third-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-container {
+  width: 250px;
+  padding: 20px;
+  background-color: #b1d8b7;
+  border-radius: 10px;
+  border: 2px solid white;
+  margin-bottom: 20px;
 }
 
 .notepad-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 150px;
-  left: 0;
-  right: 0;
-  height: 100px;
-}
-
-.weather-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   padding: 20px;
+  width: 250px;
+  height: 450px;
+  background-color: #b1d8b7;
+  border-radius: 10px;
+  border: 2px solid white;
 }
-

@@ -3,23 +3,16 @@ import './styles.css';
 
 const Notepad = () => {
     const [text, setText] = useState('');
-    const [isMinimized, setIsMinimized] = useState(true);
 
     const handleChange = (event) => {
         setText(event.target.value);
     };
 
-    const toggleMinimize = () => {
-        setIsMinimized(!isMinimized);
-    };
 
     return (
         <div className="notepad">
-            <button onClick={toggleMinimize} className="minimize-button">
-                {isMinimized ? 'Notepad' : '-'}
-            </button>
-
-            {!isMinimized && (
+            <h2 className="notes-label">Notes</h2>
+            { (
                 <>
                 <textarea
                 className="notepad-textarea"
