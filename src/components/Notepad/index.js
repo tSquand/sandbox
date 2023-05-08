@@ -17,8 +17,7 @@ const Notepad = () => {
                 <textarea
                 className="notepad-textarea"
                 value={text}
-                onChange={handleChange}
-                placeholder="Write any notes here..."
+                onChange={handleChange}               
                 />
                 </>
             )}

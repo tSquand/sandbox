@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import './styles.css';
 
 const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
@@ -35,7 +36,7 @@ const Weather = () => {
 
     const { current_weather } = weatherData;
     return (
-        <div>
+        <div className="weather">
             <h2>{location}</h2>
             <p>{current_weather.temperature}°F</p>
             <p>{chanceOfRain}% chance of rain</p>

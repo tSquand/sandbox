@@ -9,7 +9,21 @@ function App() {
   return (
     <div className="App">
       <div className="first-column">
-
+        <div className="instruction-pane-container">
+         <div className="instruction-pane">
+          something will go here eventually
+         </div>
+        </div>
+        <div className="future-component-container">
+          <div className="future-component">
+            something will go here eventually also
+          </div>
+        </div>
+        <div className="theme-selector-container">
+          <div className="theme-selector">
+            Theme selector component will go here
+          </div>
+        </div>
       </div>
       <div className="second-column">
         <HourPlanner className="HourPlanner"/> 
@@ -22,6 +36,11 @@ function App() {
         <div className="notepad-container">
           <Notepad className="Notepad"/>
           </div>
+        <div className="reset-button-container">
+          <div className="reset-button">
+            this will be a big reset button
+          </div>
+        </div>
         </div>
       </div>     
   );

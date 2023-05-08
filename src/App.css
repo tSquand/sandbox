@@ -7,6 +7,42 @@
   padding: 50px;
 }
 
+.instruction-pane-container {
+  background-color: rgb(135, 203, 40);
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 250px;
+  height: 250px;
+}
+
+.instruction-pane {
+  color: white;
+}
+
+.future-component-container {
+  background-color: rgb(135, 203, 40);
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 250px;
+  height: 250px;
+}
+
+.future-component {
+  color: white;
+}
+
+.theme-selector-container {
+  background-color: rgb(135, 203, 40);
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 250px;
+  height: 150px;
+}
+
+.theme-selector {
+  color: white;
+}
+
 .component-container {
   display: flex;
   flex-direction: column;
@@ -24,16 +60,30 @@
   grid-area: notepad;
 }
 
-.third-column {
+.first-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.second-column {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.third-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .weather-container {
   width: 250px;
   padding: 20px;
-  background-color: #b1d8b7;
+  background-color: rgb(135, 203, 40);
   border-radius: 10px;
   border: 2px solid white;
   margin-bottom: 20px;
@@ -46,7 +96,16 @@
   padding: 20px;
   width: 250px;
   height: 450px;
-  background-color: #b1d8b7;
+  background-color: rgb(135, 203, 40);
   border-radius: 10px;
   border: 2px solid white;
+}
+
+.reset-button-container {
+  background-color: rgb(135, 203, 40);
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 250px;
+  padding: 20px;
+  height: 30px;
 }
