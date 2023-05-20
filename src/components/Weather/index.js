@@ -37,7 +37,8 @@ const Weather = () => {
     const { current_weather } = weatherData;
     return (
         <div className="weather">
-            <h2>{location}</h2>
+            <h2>Weather</h2>
+            <p>{location}</p>
             <p>{current_weather.temperature}°F</p>
             <p>{chanceOfRain}% chance of rain</p>
         </div>

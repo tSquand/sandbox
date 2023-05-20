@@ -19,7 +19,7 @@ ul {
 .hour-planner {
     border-radius: 10px;
     border: 2px solid white;
-    background-color: rgb(177, 216, 183);
+    background-color: rgba(94, 131, 43, 0.596);
     width: 500px;
 }
 

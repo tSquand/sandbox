@@ -36,11 +36,6 @@ function App() {
         <div className="notepad-container">
           <Notepad className="Notepad"/>
           </div>
-        <div className="reset-button-container">
-          <div className="reset-button">
-            this will be a big reset button
-          </div>
-        </div>
         </div>
       </div>     
   );
