@@ -39,15 +39,10 @@ const List = () => {
         }
     }, [addItem]);
 
-   /* const onTaskScheduled = useCallback(
-        (task) => {
-            setItems((prevItems) => prevItems.filter((item) => item !== task));
-        }, [setItems]
-    );*/
     
     return (
         <div>
-            {items.map((item) => <Item name={item} incrementCounter={incrementCounter} decrementCounter={decrementCounter}/>)}
+            {items.map((item, index) => <Item key={index} name={item} incrementCounter={incrementCounter} decrementCounter={decrementCounter}/>)}
             <div>
                 <input
                     type="text"

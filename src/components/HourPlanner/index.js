@@ -5,7 +5,6 @@ import './styles.css';
 const HourPlanner = ({ onTaskScheduled }) => {
     const [scheduleAM, setScheduleAM] = useState(Array(7).fill([]));
     const [schedulePM, setSchedulePM] = useState(Array(10).fill([]));
-    const [isMinimized, setIsMinimized] = useState(false);
 
     const onDrop = (event, hour, isPM) => {
         event.preventDefault();
@@ -52,14 +51,6 @@ const HourPlanner = ({ onTaskScheduled }) => {
         ));
     };
 
-    const toggleMinimize = () => {
-        setIsMinimized(!isMinimized);
-    };
-
-   /* const resetHourList = () => {
-        setScheduleAM(Array(7).fill([]));
-        setSchedulePM(Array(10).fill([]));
-    }*/
 
     return (
         <div className="hour-planner">
