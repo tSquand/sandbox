@@ -1,11 +1,23 @@
 import './App.css';
+import React, { useState } from 'react';
 import List from './components/List';
 import HourPlanner from './components/HourPlanner';
 import Weather from './components/Weather';
 import Notepad from './components/Notepad';
+import RandomTask from './components/RandomTask';
 
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = (task) => {
+    setTasks(prevTasks => [...prevTasks, task]);
+  };
+
+  const resetTasks = () => {
+    setTasks([]);
+  }
+
   return (
     <div className="App">
       <div className="first-column">
@@ -16,7 +28,7 @@ function App() {
         </div>
         <div className="future-component-container">
           <div className="future-component">
-            something will go here eventually also
+            <RandomTask tasks={tasks}/>
           </div>
         </div>
         <div className="theme-selector-container">
@@ -27,7 +39,7 @@ function App() {
       </div>
       <div className="second-column">
         <HourPlanner className="HourPlanner"/> 
-        <List className="List"/>       
+        <List className="List" tasks={tasks} onTaskAdded={addTask} onTasksReset={resetTasks}/>       
       </div>     
       <div className="third-column">
         <div className="weather-container">             
