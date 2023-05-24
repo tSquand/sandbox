@@ -7,18 +7,6 @@
   padding: 50px;
 }
 
-.instruction-pane-container {
-  background-color: rgba(94, 131, 43, 0.596);
-  border-radius: 10px;
-  border: 2px solid white;
-  width: 250px;
-  height: 250px;
-}
-
-.instruction-pane {
-  color: white;
-}
-
 .random-task-container {
   background-color: rgba(94, 131, 43, 0.596);
   border-radius: 10px;
@@ -28,18 +16,6 @@
 }
 
 .random-task {
-  color: white;
-}
-
-.theme-selector-container {
-  background-color: rgba(94, 131, 43, 0.596);
-  border-radius: 10px;
-  border: 2px solid white;
-  width: 250px;
-  height: 150px;
-}
-
-.theme-selector {
   color: white;
 }
 

@@ -1,13 +1,10 @@
 import './App.css';
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import List from './components/List';
 import HourPlanner from './components/HourPlanner';
 import Weather from './components/Weather';
 import Notepad from './components/Notepad';
 import RandomTask from './components/RandomTask';
-
-
-
 
 function App() {
   const [tasks, setTasks] = useState([]);

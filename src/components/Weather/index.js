@@ -16,11 +16,7 @@ const Weather = () => {
             }
 
             const data = await response.json();
-            console.log("Weather API data:", data);
-            setWeatherData(data);
-
-        
-
+            setWeatherData(data);  
         } catch (error) {
             console.error('Error fetching weather data:', error);
         }
@@ -69,6 +65,7 @@ const Weather = () => {
             default : return 'Unknown';
         }
     }
+
     return (
         <div className="weather">
             <h2>{location} Weather</h2>
