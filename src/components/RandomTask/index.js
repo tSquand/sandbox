@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 const RandomTask = ({ tasks }) => {
     const [selectedTask, setSelectedTask] = useState(null);
@@ -10,9 +11,11 @@ const RandomTask = ({ tasks }) => {
 
     return (
         <div>
-            <h2> Random Task </h2>
-            {selectedTask && <p>{selectedTask}</p>}
-            <button id="random-task-button" onClick={() => getRandomTask()}>Get a random task</button>
+            <p className="center">Don't know what to do next?</p>
+            <div className="task-button-container">     
+                <button className="random-task-button" onClick={() => getRandomTask()}>Get a random task</button>              
+            </div>
+            <p className="random-task-output">{selectedTask}</p>
         </div>
     );
 

@@ -19,7 +19,7 @@
   color: white;
 }
 
-.future-component-container {
+.random-task-container {
   background-color: rgba(94, 131, 43, 0.596);
   border-radius: 10px;
   border: 2px solid white;
@@ -27,7 +27,7 @@
   height: 250px;
 }
 
-.future-component {
+.random-task {
   color: white;
 }
 
@@ -82,7 +82,6 @@
 
 .weather-container {
   width: 250px;
-  padding: 20px;
   background-color: rgba(94, 131, 43, 0.596);
   border-radius: 10px;
   border: 2px solid white;

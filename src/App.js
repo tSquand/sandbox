@@ -21,19 +21,12 @@ function App() {
   return (
     <div className="App">
       <div className="first-column">
-        <div className="instruction-pane-container">
-         <div className="instruction-pane">
-          something will go here eventually
-         </div>
-        </div>
-        <div className="future-component-container">
-          <div className="future-component">
+        <div className="weather-container">             
+          <Weather className="Weather"/>
+        </div> 
+        <div className="random-task-container">
+          <div className="random-task">
             <RandomTask tasks={tasks}/>
-          </div>
-        </div>
-        <div className="theme-selector-container">
-          <div className="theme-selector">
-            Theme selector component will go here
           </div>
         </div>
       </div>
@@ -42,9 +35,6 @@ function App() {
         <List className="List" tasks={tasks} onTaskAdded={addTask} onTasksReset={resetTasks}/>       
       </div>     
       <div className="third-column">
-        <div className="weather-container">             
-          <Weather className="Weather"/>
-        </div> 
         <div className="notepad-container">
           <Notepad className="Notepad"/>
           </div>

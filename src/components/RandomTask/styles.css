@@ -1,0 +1,14 @@
+
+.task-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.random-task-output {
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
