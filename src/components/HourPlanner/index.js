@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import Item from '../Item';
 import './styles.css';
 
-const HourPlanner = ({ onTaskScheduled }) => {
-    const [scheduleAM, setScheduleAM] = useState(Array(7).fill([]));
-    const [schedulePM, setSchedulePM] = useState(Array(10).fill([]));
-
+const HourPlanner = ({ scheduleAM, setScheduleAM, schedulePM, setSchedulePM, draggingTask, onTaskRemoved, setDraggingTask }) => {
     const onDrop = (event, hour, isPM) => {
         event.preventDefault();
         const task = JSON.parse(event.dataTransfer.getData("task"));
         if (task.name) {
+            onTaskRemoved(draggingTask);
+            setDraggingTask(null);
             if (isPM) {
                 setSchedulePM((prevSchedule) => {
                     const newSchedule = [...prevSchedule];
@@ -22,9 +21,9 @@ const HourPlanner = ({ onTaskScheduled }) => {
                     newSchedule[hour] = [...newSchedule[hour], task];
                     return newSchedule;
                 });
-            }                     
-            onTaskScheduled(task.name);
+            } 
         }
+        
     };
 
     const onDragOver = (event) => {

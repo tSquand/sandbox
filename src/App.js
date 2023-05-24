@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import List from './components/List';
 import HourPlanner from './components/HourPlanner';
 import Weather from './components/Weather';
@@ -7,15 +7,27 @@ import Notepad from './components/Notepad';
 import RandomTask from './components/RandomTask';
 
 
+
+
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [scheduleAM, setScheduleAM] = useState(Array(7).fill([]));
+  const [schedulePM, setSchedulePM] = useState(Array(10).fill([]));
+  const [draggingTask, setDraggingTask] = useState(null);
+
 
   const addTask = (task) => {
     setTasks(prevTasks => [...prevTasks, task]);
   };
 
+  const removeTask = (indexToRemove) => {
+    setTasks(prevTasks => prevTasks.filter((_, index) => index !== indexToRemove));
+  };
+
   const resetTasks = () => {
     setTasks([]);
+    setScheduleAM(Array(7).fill([]));
+    setSchedulePM(Array(10).fill([]));
   }
 
   return (
@@ -31,8 +43,8 @@ function App() {
         </div>
       </div>
       <div className="second-column">
-        <HourPlanner className="HourPlanner"/> 
-        <List className="List" tasks={tasks} onTaskAdded={addTask} onTasksReset={resetTasks}/>       
+        <HourPlanner className="HourPlanner" setSchedulePM={setSchedulePM} schedulePM={schedulePM} setScheduleAM={setScheduleAM} scheduleAM={scheduleAM} draggingTask={draggingTask} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}  /> 
+        <List className="List" tasks={tasks} onTaskAdded={addTask} onTasksReset={resetTasks} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}/>   
       </div>     
       <div className="third-column">
         <div className="notepad-container">

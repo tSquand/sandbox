@@ -1,18 +1,14 @@
 import React, {useState, useCallback} from 'react';
 
-const Item = ({name, incrementCounter, decrementCounter, checked }) => {
+const Item = ({name, checked, setDraggingTask }) => {
     const [isCompleted, setIsCompleted] = useState(checked || false);
     const handleChange = useCallback(() => {
         setIsCompleted(!isCompleted);
-        if (!isCompleted) {
-            incrementCounter();
-        } else {
-            decrementCounter();
-        }
-    }, [isCompleted, setIsCompleted, incrementCounter, decrementCounter]);
+    }, [isCompleted, setIsCompleted]);
 
     const onDragStart = (event) => {
-        event.dataTransfer.setData("task", JSON.stringify({ name: name, checked: isCompleted}));
+        event.dataTransfer.setData("task", JSON.stringify({ name: name, checked: isCompleted }));
+        setDraggingTask();
     };
     
     return (
