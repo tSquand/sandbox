@@ -1,13 +1,13 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 
-const Item = ({name, checked, setDraggingTask }) => {
-    const [isCompleted, setIsCompleted] = useState(checked || false);
-    const handleChange = useCallback(() => {
-        setIsCompleted(!isCompleted);
-    }, [isCompleted, setIsCompleted]);
+const Item = ({name, completed, setDraggingTask, onTaskCompleted }) => {
+
+    const handleChange = () => {
+        onTaskCompleted(name);
+    };
 
     const onDragStart = (event) => {
-        event.dataTransfer.setData("task", JSON.stringify({ name: name, checked: isCompleted }));
+        event.dataTransfer.setData("task", JSON.stringify({ name: name, completed: completed }));
         setDraggingTask();
     };
     
@@ -15,10 +15,10 @@ const Item = ({name, checked, setDraggingTask }) => {
         <div className="item" draggable onDragStart={onDragStart}>
             <input
                 type="checkbox"
-                checked={isCompleted}
+                checked={completed}
                 onChange={handleChange} 
                 />
-                <span style={{textDecorationLine : isCompleted && "line-through"}}> {name} </span>
+                <span style={{textDecorationLine : completed && "line-through"}}> {name} </span>
         </div>
         
 

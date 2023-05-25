@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Item from "../Item";
 
-const List = ({ tasks, onTaskAdded, onTasksReset, setDraggingTask }) => {
+const List = ({ tasks, onTaskAdded, onTasksReset, setDraggingTask, onTaskCompleted }) => {
     const [inputValue, setInputValue] = useState("");
 
     const addItem = useCallback(() => {
@@ -23,7 +23,7 @@ const List = ({ tasks, onTaskAdded, onTasksReset, setDraggingTask }) => {
 
     return (
         <div>
-            {tasks.map((item, index) => <Item key={index} name={item} setDraggingTask={() => setDraggingTask(index)}/>)}
+            {tasks.map((item, index) => <Item key={index} name={item.task} completed={item.completed} onTaskCompleted={onTaskCompleted} setDraggingTask={() => setDraggingTask(index)}/>)}
             <div>
                 <input
                     type="text"

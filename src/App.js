@@ -14,7 +14,13 @@ function App() {
 
 
   const addTask = (task) => {
-    setTasks(prevTasks => [...prevTasks, task]);
+    setTasks(prevTasks => [...prevTasks, { task: task, completed: false }]);
+  };
+
+  const completeTask = (taskToComplete) => {
+    setTasks(prevTasks => prevTasks.map(task => 
+      task.task === taskToComplete ? { ...task, completed: true } : task
+    ));
   };
 
   const removeTask = (indexToRemove) => {
@@ -41,7 +47,7 @@ function App() {
       </div>
       <div className="second-column">
         <HourPlanner className="HourPlanner" setSchedulePM={setSchedulePM} schedulePM={schedulePM} setScheduleAM={setScheduleAM} scheduleAM={scheduleAM} draggingTask={draggingTask} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}  /> 
-        <List className="List" tasks={tasks} onTaskAdded={addTask} onTasksReset={resetTasks} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}/>   
+        <List className="List" tasks={tasks} onTaskCompleted={completeTask} onTaskAdded={addTask} onTasksReset={resetTasks} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}/>   
       </div>     
       <div className="third-column">
         <div className="notepad-container">
