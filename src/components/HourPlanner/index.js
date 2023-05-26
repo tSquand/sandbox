@@ -2,7 +2,7 @@ import React from "react";
 import Item from '../Item';
 import './styles.css';
 
-const HourPlanner = ({ scheduleAM, setScheduleAM, schedulePM, setSchedulePM, draggingTask, onTaskRemoved, setDraggingTask }) => {
+const HourPlanner = ({ scheduleAM, setScheduleAM, schedulePM, setSchedulePM, draggingTask, onTaskRemoved, setDraggingTask, onTaskCompleted }) => {
     const onDrop = (event, hour, isPM) => {
         event.preventDefault();
         const task = JSON.parse(event.dataTransfer.getData("task"));
@@ -43,7 +43,7 @@ const HourPlanner = ({ scheduleAM, setScheduleAM, schedulePM, setSchedulePM, dra
                 </div>
                 <ul>
                     {tasks.map((task, index) => (
-                        <Item key={index} name={task.name} checked={task.checked} />
+                        <Item key={index} name={task.name} completed={task.checked} onTaskCompleted={onTaskCompleted} />
                     ))}                    
                 </ul>
             </div>

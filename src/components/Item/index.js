@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState} from 'react';
 
 const Item = ({name, completed, setDraggingTask, onTaskCompleted }) => {
-
+    const [isChecked, setIsChecked] = useState(completed);
     const handleChange = () => {
+        setIsChecked(!isChecked);
         onTaskCompleted(name);
     };
 
@@ -18,7 +19,7 @@ const Item = ({name, completed, setDraggingTask, onTaskCompleted }) => {
                 checked={completed}
                 onChange={handleChange} 
                 />
-                <span style={{textDecorationLine : completed && "line-through"}}> {name} </span>
+                <span style={{textDecorationLine : isChecked ? "line-through" : "none"}}> {name} </span>
         </div>
         
 

@@ -19,7 +19,7 @@ function App() {
 
   const completeTask = (taskToComplete) => {
     setTasks(prevTasks => prevTasks.map(task => 
-      task.task === taskToComplete ? { ...task, completed: true } : task
+      task.task === taskToComplete ? { ...task, completed: !task.completed } : task
     ));
   };
 
@@ -46,7 +46,7 @@ function App() {
         </div>
       </div>
       <div className="second-column">
-        <HourPlanner className="HourPlanner" setSchedulePM={setSchedulePM} schedulePM={schedulePM} setScheduleAM={setScheduleAM} scheduleAM={scheduleAM} draggingTask={draggingTask} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}  /> 
+        <HourPlanner className="HourPlanner" setSchedulePM={setSchedulePM} schedulePM={schedulePM} setScheduleAM={setScheduleAM} scheduleAM={scheduleAM} draggingTask={draggingTask} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask} onTaskCompleted={completeTask}  /> 
         <List className="List" tasks={tasks} onTaskCompleted={completeTask} onTaskAdded={addTask} onTasksReset={resetTasks} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}/>
         <p>Drag tasks to schedule!</p>   
       </div>     
