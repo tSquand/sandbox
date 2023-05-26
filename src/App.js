@@ -47,7 +47,8 @@ function App() {
       </div>
       <div className="second-column">
         <HourPlanner className="HourPlanner" setSchedulePM={setSchedulePM} schedulePM={schedulePM} setScheduleAM={setScheduleAM} scheduleAM={scheduleAM} draggingTask={draggingTask} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}  /> 
-        <List className="List" tasks={tasks} onTaskCompleted={completeTask} onTaskAdded={addTask} onTasksReset={resetTasks} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}/>   
+        <List className="List" tasks={tasks} onTaskCompleted={completeTask} onTaskAdded={addTask} onTasksReset={resetTasks} onTaskRemoved={removeTask} setDraggingTask={setDraggingTask}/>
+        <p>Drag tasks to schedule!</p>   
       </div>     
       <div className="third-column">
         <div className="notepad-container">
